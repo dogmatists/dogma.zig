@@ -9,3 +9,6 @@
 
 # Pandoc outputs
 *.html
+
+# Zig artifacts
+zig-cache/
