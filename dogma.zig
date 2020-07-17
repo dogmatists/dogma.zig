@@ -1,20 +1,8 @@
 // This is free and unencumbered software released into the public domain.
 
-pub const Angle = extern struct {
-    radians: f64,
+pub usingnamespace @import("src/angle.zig");
 
-    const Self = @This();
-
-    pub fn init(radians: f64) Self {
-        return Self{.radians = radians};
-    }
-  };
-
-test "Angle" { // zig test --main-pkg-path . dogma.zig
+test "Dogma" { // zig test dogma.zig
     const meta = @import("std").meta;
-    const testing = @import("std").testing;
-
     meta.refAllDecls(@This());
-
-    testing.expect(Angle.init(2).radians == 2);
 }
