@@ -47,6 +47,6 @@ test "Latitude.initWithBounds(degrees) where degrees > ±90° returns en error" 
     expect((Latitude.initWithBounds(0) catch unreachable).angle.degrees() == 0);
     expect((Latitude.initWithBounds(-90) catch unreachable).angle.degrees() == -90);
     expect((Latitude.initWithBounds(90) catch unreachable).angle.degrees() == 90);
-    expect((Latitude.initWithBounds(-91) catch Latitude.init(0)).angle.radians == 0);
-    expect((Latitude.initWithBounds(91) catch Latitude.init(0)).angle.radians == 0);
+    expect((Latitude.initWithBounds(-91) catch Latitude.init(0)).angle.radians() == 0);
+    expect((Latitude.initWithBounds(91) catch Latitude.init(0)).angle.radians() == 0);
 }

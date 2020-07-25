@@ -47,6 +47,6 @@ test "Longitude.initWithBounds(degrees) where degrees > ±180° returns en error
     expect((Longitude.initWithBounds(0) catch unreachable).angle.degrees() == 0);
     expect((Longitude.initWithBounds(-180) catch unreachable).angle.degrees() == -180);
     expect((Longitude.initWithBounds(180) catch unreachable).angle.degrees() == 180);
-    expect((Longitude.initWithBounds(-181) catch Longitude.init(0)).angle.radians == 0);
-    expect((Longitude.initWithBounds(181) catch Longitude.init(0)).angle.radians == 0);
+    expect((Longitude.initWithBounds(-181) catch Longitude.init(0)).angle.radians() == 0);
+    expect((Longitude.initWithBounds(181) catch Longitude.init(0)).angle.radians() == 0);
 }

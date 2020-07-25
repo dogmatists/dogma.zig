@@ -7,38 +7,43 @@ const pi = @import("std").math.pi;
 /// See: https://dogma.dev/Angle/
 pub const Angle = extern struct {
     /// The angle in radians.
-    radians: f64,
+    _radians: f64,
 
     const Self = @This();
 
     /// Constructs an angle from radians.
-    pub fn init(radians_: f64) Self {
-        return Self{ .radians = radians_ };
+    pub fn init(radians: f64) Self {
+        return Self{ ._radians = radians };
     }
 
     /// Constructs an angle from radians.
-    pub fn fromRadians(radians: f64) Self {
-        return Self{ .radians = radians };
+    pub fn fromRadians(radians_: f64) Self {
+        return Self{ ._radians = radians_ };
     }
 
     /// Constructs an angle from degrees.
     pub fn fromDegrees(degrees_: f64) Self {
-        return Self{ .radians = degrees_ / 180.0 * pi };
+        return Self{ ._radians = degrees_ / 180.0 * pi };
     }
 
     /// Constructs an angle from turns.
     pub fn fromTurns(turns_: f64) Self {
-        return Self{ .radians = turns_ * 2 * pi };
+        return Self{ ._radians = turns_ * 2 * pi };
+    }
+
+    /// The angle in radians.
+    pub fn radians(self: Self) f64 {
+        return self._radians;
     }
 
     /// The angle in degrees.
     pub fn degrees(self: Self) f64 {
-        return self.radians / pi * 180.0;
+        return self._radians / pi * 180.0;
     }
 
     /// The angle in turns.
     pub fn turns(self: Self) f64 {
-        return self.radians / (2 * pi);
+        return self._radians / (2 * pi);
     }
 };
 
@@ -49,10 +54,10 @@ test "Angle" { // zig test --main-pkg-path . src/angle.zig
 
 test "Angle.fromRadians() constructs the angle from radians" {
     const expect = @import("std").testing.expect;
-    expect(Angle.fromRadians(0).radians == 0);
-    expect(Angle.fromRadians(0.5 * pi).radians == 0.5 * pi);
-    expect(Angle.fromRadians(pi).radians == pi);
-    expect(Angle.fromRadians(2 * pi).radians == 2 * pi);
+    expect(Angle.fromRadians(0).radians() == 0);
+    expect(Angle.fromRadians(0.5 * pi).radians() == 0.5 * pi);
+    expect(Angle.fromRadians(pi).radians() == pi);
+    expect(Angle.fromRadians(2 * pi).radians() == 2 * pi);
 }
 
 test "Angle.fromDegrees() constructs the angle from degrees" {
