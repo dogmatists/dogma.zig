@@ -4,7 +4,7 @@ const pi = @import("std").math.pi;
 
 /// An angle.
 ///
-/// See: https://dogma.dev/Angle/
+/// See: https://dogma.dev/Angle
 pub const Angle = extern struct {
     /// The angle in radians.
     _radians: f64,

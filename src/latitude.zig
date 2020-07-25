@@ -4,7 +4,7 @@ const Angle = @import("angle.zig").Angle;
 
 /// A latitude.
 ///
-/// See: https://dogma.dev/Latitude/
+/// See: https://dogma.dev/Latitude
 pub const Latitude = extern struct {
     angle: Angle,
 
