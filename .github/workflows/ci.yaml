@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - name: Clone repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Set up Zig
         uses: goto-bus-stop/setup-zig@default
         with:
@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - name: Clone repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Set up Zig
         uses: goto-bus-stop/setup-zig@default
         with:
